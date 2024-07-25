@@ -1,11 +1,5 @@
 export default class Airport {
   constructor(name, code) {
-    if (typeof name !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
-    if (typeof code !== 'string') {
-      throw new TypeError('Code must be a string');
-    }
     this._name = name;
     this._code = code;
   }
@@ -14,25 +8,19 @@ export default class Airport {
     return this._name;
   }
 
+  set name(value) {
+    this._name = value;
+  }
+
   get code() {
     return this._code;
   }
 
-  set name(newName) {
-    if (typeof newName !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
-    this._name = newName;
+  set code(value) {
+    this._code = value;
   }
 
-  set code(newCode) {
-    if (typeof newCode !== 'string') {
-      throw new TypeError('Code must be a string');
-    }
-    this._code = newCode;
-  }
-
-  displayFullAirport() {
-    return `${this._name} (${this._code})`;
+  toString() {
+    return `[object ${this.code}]`;
   }
 }
